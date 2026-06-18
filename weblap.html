@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Csenge Veronika Szabó-Komoróczki</title>
+<style>
+  :root {
+    --primary: #a880db;
+    --primary-dark: #8e5ed1;
+    --primary-light: #d6c0f2;
+    --accent: #6ee7d8;
+    --accent-dark: #38bfae;
+    --bg: #faf8fd;
+    --surface: #ffffff;
+    --border: #e8e1f3;
+    --text: #1f1b2d;
+    --text-muted: #635a76;
+    --maxw: 1100px;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(142, 94, 209, 0.08);
+    --shadow-hover: 0 16px 40px rgba(142, 94, 209, 0.16);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Navbar */
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(250,248,253,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .brand { font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .brand span { color: var(--primary-dark); }
+  .nav-links { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.92rem; font-weight: 500; padding: 0.4rem 0.75rem; border-radius: 999px; transition: all 0.2s ease; }
+  .nav-link:hover { color: var(--primary-dark); background: var(--primary-light); }
+  /* Layout */
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+  .section { padding: 4.5rem 0; }
+  .section-heading { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 0.5rem; color: var(--text); }
+  .section-heading::after { content: ''; display: block; width: 54px; height: 4px; margin-top: 0.75rem; border-radius: 999px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+  .section-intro { color: var(--text-muted); max-width: 60ch; margin: 0.75rem 0 2.5rem; font-size: 1.02rem; }
+  /* Hero */
+  .hero { position: relative; overflow: hidden; background: radial-gradient(900px 500px at 85% -10%, var(--primary-light), transparent 60%), radial-gradient(700px 400px at 0% 20%, rgba(110,231,216,0.25), transparent 55%), var(--bg); padding: 6rem 0 5rem; border-bottom: 1px solid var(--border); }
+  .hero-inner { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--surface); border: 1px solid var(--border); color: var(--primary-dark); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 0.9rem; border-radius: 999px; box-shadow: var(--shadow); }
+  .hero-badge::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-dark); }
+  .hero-name { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 1.5rem 0 0.5rem; background: linear-gradient(120deg, var(--text) 30%, var(--primary-dark)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-role { font-size: clamp(1rem, 2.2vw, 1.25rem); font-weight: 600; color: var(--primary-dark); margin: 0 0 1rem; }
+  .hero-tagline { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: var(--text-muted); max-width: 56ch; margin: 0 0 2rem; }
+  .hero-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; text-decoration: none; padding: 0.75rem 1.4rem; border-radius: 999px; transition: all 0.2s ease; cursor: pointer; border: 1px solid transparent; }
+  .btn-primary { background: var(--primary); color: #fff; box-shadow: var(--shadow); }
+  .btn-primary:hover { background: var(--primary-dark); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+  .btn-ghost { background: var(--surface); color: var(--primary-dark); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--primary); transform: translateY(-2px); }
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+  .about-text p { margin: 0 0 1.1rem; font-size: 1.05rem; color: var(--text); }
+  .about-text p:first-child { font-size: 1.2rem; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .tag { font-size: 0.85rem; font-weight: 600; color: var(--primary-dark); background: var(--primary-light); padding: 0.4rem 0.85rem; border-radius: 999px; }
+  /* Cards */
+  .alt-bg { background: linear-gradient(180deg, var(--surface), var(--bg)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--primary-light); }
+  .card-title { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.25rem; color: var(--text); }
+  .card-subtitle { font-size: 0.9rem; font-weight: 600; color: var(--primary-dark); margin: 0 0 1rem; }
+  .card-points { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .card-points li { position: relative; padding-left: 1.4rem; color: var(--text-muted); font-size: 0.95rem; }
+  .card-points li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-dark); }
+  /* Contact */
+  .contact-card { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: var(--radius); padding: 3rem 2rem; color: #fff; text-align: center; box-shadow: var(--shadow-hover); }
+  .contact-card h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0 0 0.75rem; font-weight: 800; letter-spacing: -0.02em; }
+  .contact-card p { max-width: 55ch; margin: 0 auto 1.75rem; color: rgba(255,255,255,0.9); font-size: 1.05rem; }
+  .contact-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+  .contact-btn { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: var(--primary-dark); text-decoration: none; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: 999px; transition: all 0.2s ease; }
+  .contact-btn:hover { background: var(--accent); color: var(--text); transform: translateY(-2px); }
+  .contact-meta { margin-top: 1.75rem; font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+  /* Footer */
+  .footer { padding: 2.5rem 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+  /* Responsive */
+  @media (min-width: 900px) {
+    .about-grid { grid-template-columns: 1.5fr 1fr; align-items: start; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">Csenge <span>Szabó-Komoróczki</span></a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#leadership" class="nav-link">Leadership</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">Available for research &amp; collaboration</span>
+      <h1 class="hero-name">Csenge Veronika Szabó-Komoróczki</h1>
+      <p class="hero-role">Physics · Astrophysics · Space Technology · Data Science</p>
+      <p class="hero-tagline">Hungarian student exploring how the universe works — and how technology can help us explore it.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#research" class="btn btn-ghost">View my work</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Hello! I'm Csenge, a Hungarian student passionate about understanding how the universe works and how technology can help us explore it.</p>
+          <p>My academic interests focus on physics, astrophysics, astronomy, mathematics, and computer science. I particularly enjoy projects that combine scientific research with engineering, whether that means programming simulations, analyzing data, building autonomous vehicles, designing satellites, or contributing to rocket development.</p>
+          <p>Beyond technical work, I am actively involved in science communication, student leadership, and educational initiatives. I believe that scientific knowledge becomes most valuable when it is shared, and I enjoy helping younger students discover mathematics and science.</p>
+        </div>
+        <div>
+          <p class="card-subtitle">Areas of interest</p>
+          <div class="about-tags">
+            <span class="tag">Physics</span>
+            <span class="tag">Astrophysics</span>
+            <span class="tag">Astronomy</span>
+            <span class="tag">Mathematics</span>
+            <span class="tag">Computer Science</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Space Technology</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-heading">Research &amp; Engineering</h2>
+      <p class="section-intro">Hands-on work across satellite engineering, propulsion, autonomous systems, and scientific research.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">CanSat Hungary Team Leader</h3>
+          <p class="card-subtitle">Candide CanSat Team · Satellite Engineering</p>
+          <ul class="card-points">
+            <li>Led the Candide CanSat team designing, building, and launching a custom satellite for the CanSat Hungary competition.</li>
+            <li>Mentored by industry and space-science professionals including István Marosi (Semilab) and Örs Detre (JWST MIRI instrument team).</li>
+            <li>Reached the national finals in the 2025–26 competition season.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Rocket Development</h3>
+          <p class="card-subtitle">Arcturus Rocket Team · ASSDS Liquid Engine Team</p>
+          <ul class="card-points">
+            <li>Contributed to the Arcturus Rocket Team, which developed one of Hungary's fastest and highest-flying amateur rockets, completing a successful flight campaign.</li>
+            <li>Since September 2025, a member of the ASSDS liquid rocket engine development team working on next-generation propulsion technologies.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Autonomous Systems &amp; Robotics</h3>
+          <p class="card-subtitle">WRO Future Engineers</p>
+          <ul class="card-points">
+            <li>3rd place at the Hungarian National Finals of WRO Future Engineers (2025).</li>
+            <li>7th place internationally at the WRO Open Championship Europe in Ljubljana.</li>
+            <li>Designed, manufactured, and programmed an autonomous self-driving vehicle as a two-person team.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Lunar Geology Research</h3>
+          <p class="card-subtitle">with Dr. Ákos Kereszturi</p>
+          <ul class="card-points">
+            <li>Worked with Dr. Ákos Kereszturi, President of the Hungarian Astronomical Association, investigating lunar surface formations.</li>
+            <li>Focused on mapping and analyzing lunar ligament structures.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Laser–Material Interaction Research</h3>
+          <p class="card-subtitle">HUN-REN Wigner Research Centre for Physics</p>
+          <ul class="card-points">
+            <li>Project: "Morphology studies on craters created by femtosecond laser irradiation in UDMA polymer targets embedded with plasmonic gold nanorods."</li>
+            <li>Developing simulations and computational tools to support experimental analysis.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Spectroscopic Simulations</h3>
+          <p class="card-subtitle">University of Groningen · from 2026</p>
+          <ul class="card-points">
+            <li>Joining a student research project focused on spectroscopic simulations, filter adaptation methods, and astrophysical data analysis.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements" class="section">
+    <div class="container">
+      <h2 class="section-heading">Selected Achievements</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">Mathematics</h3>
+          <ul class="card-points">
+            <li>Selected for Maths Beyond Limits 2025, an international camp admitting only ~60 students worldwide.</li>
+            <li>17th place internationally in the 2024 KöMaL Problem Solving Competition.</li>
+            <li>Competitor in numerous national competitions: Kalmár, Varga Tamás, Kürschák, Dürer, and Surányi.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Science Competitions</h3>
+          <ul class="card-points">
+            <li>4th place — National Dürer Physics Team Competition (2026).</li>
+            <li>4th place internationally — Jakucs László Geography Competition (2024).</li>
+            <li>1st place nationally — Bolyai Natural Sciences Team Competition (2023).</li>
+            <li>2nd place — Szántay Csaba Chemistry Competition (2023).</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Scholarships &amp; Recognition</h3>
+          <ul class="card-points">
+            <li>STEM Sisters Program mentee (2025) — developed an AI-powered data processing application.</li>
+            <li>Sigma Technology Hungary Special Award at NASA Space Apps Challenge Hungary for a Minecraft-based space education platform.</li>
+            <li>MOL New Europe Foundation support to attend the Reach Cambridge Physics &amp; Astronomy Programme at the University of Cambridge (2026).</li>
+            <li>Applicant under international review for the Global Talent Mentoring Program in astrophysics research.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="leadership" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-heading">Leadership &amp; Community</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">Science Outreach</h3>
+          <ul class="card-points">
+            <li>Passionate about making science accessible and engaging for younger generations.</li>
+            <li>Working with István Marosi and Ákos Kereszturi to develop a platform for young planetary observers — supporting collaboration, observation partner matching, and science communication.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Student Leadership</h3>
+          <ul class="card-points">
+            <li>Student Communications Officer, Fazekas Student Government.</li>
+            <li>Organizer of the Fazekas+ Festival in two consecutive academic years.</li>
+            <li>Co-founder and contributor to student initiatives promoting community engagement.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Volunteering</h3>
+          <ul class="card-points">
+            <li>Astronomy outreach volunteer and student assistant at the Svábhegy Observatory.</li>
+            <li>Mathematics and physics tutor through the Taléta educational program.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-heading">Experience</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title">University Research Assistant</h3>
+          <p class="card-subtitle">HUN-REN Wigner Research Centre for Physics</p>
+          <ul class="card-points">
+            <li>Assisted in scientific publications and technical reports.</li>
+            <li>Conducted interferometer-based laboratory experiments.</li>
+            <li>Performed wave propagation simulations using MEEP.</li>
+            <li>Analyzed complex scientific datasets.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Data Scientist Intern</h3>
+          <p class="card-subtitle">Semilab Semiconductor Physics Laboratory</p>
+          <ul class="card-points">
+            <li>Produced weekly production data analyses.</li>
+            <li>Developed and debugged software tools.</li>
+            <li>Contributed to process optimization and product development.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Astronomy Educator</h3>
+          <p class="card-subtitle">Konkoly Thege Miklós Institute of Astronomy</p>
+          <ul class="card-points">
+            <li>Delivered astronomy and astrophysics presentations.</li>
+            <li>Prepared educational materials.</li>
+            <li>Operated telescopes and guided public observing sessions.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <h2>Let's connect</h2>
+        <p>Always interested in research collaborations, engineering projects, science outreach, and opportunities in astrophysics, space technology, and data science.</p>
+        <div class="contact-actions">
+          <a href="mailto:szabokcsenge@gmail.com" class="contact-btn">szabokcsenge@gmail.com</a>
+        </div>
+        <p class="contact-meta">📍 Budapest, Hungary</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary
+  </footer>
+</body>
+</html>
