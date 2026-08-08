@@ -3,139 +3,367 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Blog · Csenge Veronika Szabó-Komoróczki</title>
-
-<link rel="stylesheet" href="style.css">
-
+<title>Reach Cambridge — My 12 Days in Cambridge</title>
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --paper: #fffdf9;
+    --ink: #18202a;
+    --muted: #66717d;
+    --accent: #6d5dfc;
+    --accent-soft: #ece9ff;
+    --line: #e6e1d8;
+    --shadow: 0 16px 40px rgba(30, 35, 45, .08);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.75;
+  }
+  a { color: inherit; }
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255,253,249,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1180px;
+    margin: auto;
+    padding: 15px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .brand { text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
+  .brand span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display:none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: .9rem;
+    padding: 6px 9px;
+    border-radius: 8px;
+  }
+  .nav-links a:hover { background: var(--accent-soft); color: var(--accent); }
+  .hero {
+    min-height: 58vh;
+    display: grid;
+    place-items: center;
+    padding: 90px 24px 70px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(109,93,252,.15), transparent 30%),
+      radial-gradient(circle at 85% 25%, rgba(65,125,255,.11), transparent 28%),
+      var(--bg);
+  }
+  .hero-inner { max-width: 900px; text-align: center; }
+  .eyebrow {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 750;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 20px 0 16px;
+    font-size: clamp(2.8rem, 7vw, 5.7rem);
+    line-height: .98;
+    letter-spacing: -.065em;
+  }
+  .hero p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 1.13rem;
+  }
+  .hero-meta {
+    margin-top: 25px !important;
+    font-size: .92rem !important;
+  }
+  main { max-width: 980px; margin: 0 auto; padding: 40px 24px 90px; }
+  .intro {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+  }
+  .intro h2 { margin-top: 0; letter-spacing: -.03em; }
+  .day-card {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 34px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+    scroll-margin-top: 85px;
+  }
+  .day-number {
+    color: var(--accent);
+    font-weight: 850;
+    font-size: .82rem;
+    letter-spacing: .12em;
+    padding-top: 9px;
+  }
+  .day-content h2 {
+    margin: 0 0 17px;
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -.045em;
+  }
+  .day-content p { margin: 0 0 16px; color: #39434e; }
+  .day-content p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    padding: 30px 24px 60px;
+    border-top: 1px solid var(--line);
+  }
+  .back {
+    display: inline-block;
+    margin-top: 12px;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  @media (max-width: 720px) {
+    .nav-inner { align-items: flex-start; flex-direction: column; }
+    .nav-links { width: 100%; }
+    .hero { min-height: 52vh; padding-top: 65px; }
+    .day-card { grid-template-columns: 1fr; gap: 6px; padding: 25px; }
+    .day-number { padding-top: 0; }
+  }
+</style>
 </head>
-
 <body>
-
 <nav class="nav">
-    <div class="nav-inner">
-      <a href="#top" class="brand">Csenge <span>Szabó-Komoróczki</span></a>
-      <div class="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#achievements" class="nav-link">Achievements</a>
-        <a href="#leadership" class="nav-link">Leadership</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="blog.html" class="nav-link">Blog</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </nav>
-
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Csenge <span>Szabó-Komoróczki</span></a>
+    <div class="nav-links"><a href="#day-1">Day 1</a>
+<a href="#day-2">Day 2</a>
+<a href="#day-3">Day 3</a>
+<a href="#day-4">Day 4</a>
+<a href="#day-5">Day 5</a>
+<a href="#day-6">Day 6</a>
+<a href="#day-7">Day 7</a>
+<a href="#day-8">Day 8</a>
+<a href="#day-9">Day 9</a>
+<a href="#day-10">Day 10</a>
+<a href="#day-11">Day 11</a>
+<a href="#day-12">Day 12</a></div>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="hero-inner">
-
-    <span class="hero-badge">
-      Science · Technology · Space
-    </span>
-
-    <h1 class="hero-name">
-      Blog · Under Development
-    </h1>
-
-    <p class="hero-tagline">
-      Thoughts, discoveries, project updates, and reflections from my journey through physics, astrophysics, and engineering.
-    </p>
-
+    <span class="eyebrow">Reach Cambridge · Program 2 · 2026</span>
+    <h1>12 days in Cambridge.</h1>
+    <p>A student-side diary of classes, trips, late-night games, new friends, way too much pasta, and everything in between.</p>
+    <p class="hero-meta">Physics &amp; Astronomy Programme · University of Cambridge</p>
   </div>
 </header>
 
+<main>
+  <section class="intro">
+    <h2>So, what was Reach actually like?</h2>
+    <p>I went to Reach Cambridge expecting an academic summer programme, and obviously there was plenty of studying. But the part I didn't fully expect was how quickly the academic side blended into everything else: exploring Cambridge at lunch, getting competitive over sports and team challenges, meeting people from all over the world, and somehow making a packed two-week schedule feel like a normal routine.</p>
+    <p>This is my version of the programme — less official report, more “what it actually felt like to be there”. I’ve kept Day 4 as a gap because I wasn’t given notes for that day, rather than inventing something that I don't remember.</p>
+  </section>
 
-<section class="section">
+  
+    <article class="day-card" id="day-1">
+      <div class="day-number">DAY 01</div>
+      <div class="day-content">
+        <h2>First Day in Cambridge</h2>
+        
+<p>Day 1 was basically the moment it started feeling real: I was actually in Cambridge for Reach! We were walked to our morning classes, with subjects ranging from Medicine &amp; Life Sciences to Physics &amp; Astronomy, Literature &amp; Creative Writing, and Architecture. Since I was in Physics &amp; Astronomy, I was especially excited to finally get into the academic side of the programme.</p>
+<p>The Law group got a pretty amazing start too, with a talk from Daniel Zeichner, the MP for Cambridge. Afterwards, they discussed the UK parliamentary system and the impact of Brexit.</p>
+<p>Lunch was spent exploring Market Square. There were loads of different food options, and somehow penne pasta seemed to be winning the popularity contest.</p>
+<p>Then came our first big team challenge: <strong>Instravaganza</strong>. The whole Program 2 cohort was split into Team Fire and Team Ice, and we had to solve riddles leading us to different Cambridge landmarks and take creative photos there. Team Ice even got a photo by Newton's Apple Tree with apples on their heads. Very serious academic work.</p>
+<p>In the evening we had a drumming session with Abass Dodoo, a Ghana-born drummer who has spent years sharing his culture around the world. His message, <em>“Everything you do, you do it to your best,”</em> was honestly a pretty good motto for the next two weeks. By the end, the whole lecture theatre was full of people trying to keep up with the rhythms.</p>
 
-<div class="container">
+      </div>
+    </article>
+    <article class="day-card" id="day-2">
+      <div class="day-number">DAY 02</div>
+      <div class="day-content">
+        <h2>Getting Into the Routine</h2>
+        
+<p>By Day 2, Cambridge already felt a little less unfamiliar. The Corpus students had even started a morning tradition of playing a quick game of charades between breakfast and classes. Not a bad way to wake up before a full day.</p>
+<p>We went back to Market Square for lunch and then split up for afternoon activities. Some of us went outside for sports, and the volleyball game got surprisingly competitive. Others made postcards. There were drawings of Corpus Christi College, flags, random artwork, and messages for friends and family back home.</p>
+<p>At the same time, different groups had taster sessions including Introduction to Psychology, Young Leaders, History &amp; Politics, and Introduction to Law.</p>
+<p>In the evening, we had dinner at Nanna Mexico and Byron Burger before a University Life lecture from the programme coordinators. They talked about applying to university, building work experience, different career paths, and what university life is actually like. As someone who is already thinking a lot about university, this was one of the sessions I was really interested in.</p>
+<p>We finished the night with board games and a film. A much calmer ending after a pretty packed day.</p>
 
-<h2 class="section-heading">
-Latest Posts
-</h2>
+      </div>
+    </article>
+    <article class="day-card" id="day-3">
+      <div class="day-number">DAY 03</div>
+      <div class="day-content">
+        <h2>London, Bookshops and a Very Competitive Pizza Party</h2>
+        
+<p>Day 3 started with classes and lunch as usual, although the Politics group had a very different morning: they travelled to London to visit the House of Commons and House of Lords and learn about the buildings and their history.</p>
+<p>Back in Cambridge, we could choose between a Kahoot quiz and a bookshop tour. Obviously, Cambridge has <em>a lot</em> of bookshops. We visited Heffers, which is absolutely huge, and learnt that Cambridge University Press dates back to 1534. Some students definitely left with more books than they arrived with.</p>
+<p>The evening was probably one of the most chaotic so far: the <strong>Sports and Pizza Party</strong>. Volleyball, badminton, basketball and football were all happening at once, while some people were racing across the field or inventing their own ball games.</p>
+<p>Inside, people played Jenga, made bracelets and bag charms, and just talked. A lot of conversations somehow turned into learning phrases in other languages. Portuguese and Arabic seemed especially popular.</p>
+<p>After all that, a few of us still had enough energy to explore Cambridge a little before bed. Two students even went to try sushi for the first time. Day 3 definitely had a bit of everything.</p>
 
+      </div>
+    </article>
+    <article class="day-card" id="day-4">
+      <div class="day-number">DAY 04</div>
+      <div class="day-content">
+        <h2>Day 4 — A Missing Chapter</h2>
+        
+<p>I don't have my Day 4 notes, so I don't want to make up what happened. Rather than inventing an experience that wasn't actually mine, I'm leaving this day as a small gap in the story.</p>
+<p>And honestly, with how packed Reach was, there is a good chance I was too busy doing something to write everything down anyway.</p>
 
-<div class="card-grid">
+      </div>
+    </article>
+    <article class="day-card" id="day-5">
+      <div class="day-number">DAY 05</div>
+      <div class="day-content">
+        <h2>Shakespeare, Castles and Jousting</h2>
+        
+<p>Day 5 was a full-day trip to the West Midlands, which meant an early start followed by one of the best inventions of the summer: an air-conditioned coach.</p>
+<p>Our first stop was Stratford-upon-Avon, the town associated with William Shakespeare. We had a guided walk around the town, saw some of the important landmarks connected to him, and then had the very British combination of fish and chips by the river.</p>
+<p>After lunch we headed to Warwick Castle. We started with a hedge maze, which turned out to be harder than expected because even some of the supervisors got lost. After that came ice cream, exploring the castle, archery, and climbing what felt like an endless number of stairs.</p>
+<p>The highlight was definitely the <strong>jousting demonstration</strong>. There were horses, sword fights, acrobatics, smoke, streamers and riders doing ridiculous-looking tricks on horseback. The horses honestly stole the show.</p>
+<p>We got back to Cambridge tired, full, and very ready for an early night.</p>
 
+      </div>
+    </article>
+    <article class="day-card" id="day-6">
+      <div class="day-number">DAY 06</div>
+      <div class="day-content">
+        <h2>Sports Day and Surviving the Heat</h2>
+        
+<p>By Day 6, the Reach routine was fully established. We had a bit of a lie-in after the West Midlands trip, and then the whole day revolved around one huge activity: sports day.</p>
+<p>The food combinations at breakfast were already becoming their own little science experiment. Cucumber, scrambled eggs and a pain au chocolat? Somehow it worked.</p>
+<p>We had access to a massive sports site with a running track, volleyball courts, a football field and indoor rooms for anyone who wanted a break from the heat. Water bottles were everywhere, and supervisors kept reminding us to drink water and put on sunscreen.</p>
+<p>There was a relay race where students actually managed to beat some of the supervisors, which I imagine will be mentioned for years. People also made teams with students from other colleges, so it was a really good chance to get to know people outside our accommodation.</p>
+<p>If sports weren't your thing, there was Mario Kart, board games, origami, bracelets and other crafts inside. The atmosphere there was much quieter, with people making paper cranes and friendship bracelets while chatting.</p>
+<p>Dinner was basically everything at once: mac and cheese, rice, curry, jerk chicken, meatballs and pasta. And yes, we could have seconds.</p>
+<p>Then it was back to our colleges because the next day was <strong>London day</strong>.</p>
 
-<article class="card">
+      </div>
+    </article>
+    <article class="day-card" id="day-7">
+      <div class="day-number">DAY 07</div>
+      <div class="day-content">
+        <h2>A Day in London</h2>
+        
+<p>Day 7 was our second big excursion, and we got to choose between two London experiences. One group went to Shakespeare's Globe to see <em>A Midsummer Night's Dream</em> and then visited Tate Modern. The other group explored London from Trafalgar Square to Covent Garden.</p>
+<p>The Globe performance was vibrant, musical and full of bubbles. Some students even went on stage before the show to read Shakespeare excerpts, which was both brave and slightly terrifying to watch.</p>
+<p>At Tate Modern, we got to see loads of contemporary and modern art. We also had the freedom to choose our own lunch, which meant everyone could go hunting for something they actually wanted to eat.</p>
+<p>There was plenty of time for photos too. London from the bridges over the Thames is one of those views that makes you stop for a second and remember that you're actually there.</p>
+<p>By the evening we were back in Cambridge playing Nintendo Switch, board games and Werewolf, or just having some supervised free time in town. Jenga and Monopoly became competitive again, because apparently we cannot simply play games normally.</p>
 
-<h3 class="card-title">
-Building a CanSat: Lessons from Satellite Engineering
-</h3>
+      </div>
+    </article>
+    <article class="day-card" id="day-8">
+      <div class="day-number">DAY 08</div>
+      <div class="day-content">
+        <h2>Punting Through Cambridge</h2>
+        
+<p><strong>Punting day!</strong> I feel like this was one of the moments where the whole “I'm actually in Cambridge” feeling really hit.</p>
+<p>Classes and taster courses continued in the morning, and then after lunch we finally got onto the River Cam. Each punt had a tour guide and at least one supervisor, so we could relax while learning about the colleges and bridges around us.</p>
+<p>The river was beautiful in the sunshine. Geese and ducklings were swimming alongside the punts, and we got to see parts of Cambridge that you just don't get to see properly from the streets.</p>
+<p>We passed some of the most famous colleges, including King's, Trinity and St John's, and heard stories about their alumni. We also went past Clare College's gardens and the Bridge of Sighs. Apparently students once pulled off the ridiculous prank of hanging a car from the bridge.</p>
+<p>That evening, Holly Smith gave a lecture called <strong>Around the World in 60 Minutes</strong>, explaining how university applications differ between the UK, US, Canada, Europe and Asia. It was especially useful for anyone thinking about applying internationally.</p>
+<p>Afterwards we could paint tote bags, make postcards and decorate T-shirts, or practise for the Reach Talent Show. At this point, the talent show was already becoming a big deal.</p>
 
-<p class="card-subtitle">
-March 2026 · Space Technology
-</p>
+      </div>
+    </article>
+    <article class="day-card" id="day-9">
+      <div class="day-number">DAY 09</div>
+      <div class="day-content">
+        <h2>Pottery, Dickens and a Ghost Tour</h2>
+        
+<p>Day 9 was one of those days where we could choose between being productive and being slightly terrified.</p>
+<p>After classes and lunch at Byron Burger, we could either do pottery or get one of our last chances to play sports. I went with the quieter side of things. Students made little clay animals, including pigs and frogs, as well as some surprisingly artistic fruit: an apple and a pomegranate.</p>
+<p>Afterwards everyone sorted out their own dinner. I remember seeing three students sitting in the middle of town eating bowls of pasta together. At Reach, apparently pasta is a universal language.</p>
+<p>The evening lecture was about <strong>Charles Dickens' life</strong>, delivered by Ian Dickens, a direct descendant of the novelist. He talked about Dickens' life, writing and publishing, and there was a really interesting Q&amp;A afterwards.</p>
+<p>Then came the choice: a cosy movie night or a Cambridge ghost tour. The ghost tour guide arrived with his face painted white and wearing a black gown, while the lights slowly flickered on and off. So... naturally, some people decided this was a great idea.</p>
+<p>I think “Be there or be scared” was a pretty accurate description of the evening.</p>
 
-<p>
-A behind-the-scenes look at designing, building, and testing a student satellite for the CanSat Hungary competition.
-</p>
+      </div>
+    </article>
+    <article class="day-card" id="day-10">
+      <div class="day-number">DAY 10</div>
+      <div class="day-content">
+        <h2>Debating at the Cambridge Union</h2>
+        
+<p>By Day 10, the fact that Reach was almost over was starting to feel very real. We were getting closer to the end of classes, and I was already thinking about how strange it would be to leave Cambridge after spending two weeks here.</p>
+<p>We started the day at the <strong>Cambridge Union</strong>, which was honestly a pretty cool place to have a debating session. We learnt about how debates work, how to research reliable information, build arguments and respond to an opposing side.</p>
+<p>Then we were put into groups with people we hadn't necessarily talked to much before. One of the interesting things was that we sometimes had to argue for a position we didn't personally agree with. The whole point was to keep an open mind and understand an argument before judging it.</p>
+<p>One of the questions was whether university should be a right or a privilege. It got surprisingly serious.</p>
+<p>After lunch from Nanna Mexico and a falafel van, the evening was much more relaxed: Nintendo Switch and karaoke. Karaoke was also useful preparation for the Talent Show, although I definitely wasn't expecting what some people were going to perform later.</p>
+<p><strong>For me, though, this was the last normal day.</strong> I ended up in hospital and found out I had a ruptured cyst, so I spent the final two days resting in bed instead of joining the activities. I still got updates from people about what was happening, though, so I wasn't completely out of the loop.</p>
 
-<a href="#" class="btn btn-primary">
-Read more
-</a>
+      </div>
+    </article>
+    <article class="day-card" id="day-11">
+      <div class="day-number">DAY 11</div>
+      <div class="day-content">
+        <h2>Talent, Journalism and the Final Classes</h2>
+        
+<p>While I was recovering, the programme carried on with its penultimate day of classes.</p>
+<p>In Criminology, students worked on <strong>Forensic Psychology</strong>. They were given an old criminal case and asked to create a profile of the criminal, which was then compared with a profile made by the FBI. Apparently the tutor was really impressed with how well everyone did.</p>
+<p>The Global Leadership group even had a Blank Street treat during their lesson, while sports ran for the final time. Students who didn't go to sports continued with pottery, painting their dried clay creations, or working on tote bags and T-shirts.</p>
+<p>The last evening lecture was <strong>Using Journalism to Make an Impact</strong>, delivered by Donna Ferguson. One of the main ideas was that journalism can help “give people a voice”, and the students discussed difficult questions about what journalists should and shouldn't report.</p>
+<p>Then came the <strong>Reach Talent Show</strong>. This was apparently one of the biggest moments of the whole programme. There was a dance from students from Saudi Arabia, piano, singing, an acoustic guitar performance of a Brazilian song, and even a supervisor getting up to sing.</p>
+<p>I was sad to miss it in person, but hearing about it afterwards made it pretty obvious that everyone had gone all in.</p>
 
-</article>
+      </div>
+    </article>
+    <article class="day-card" id="day-12">
+      <div class="day-number">DAY 12</div>
+      <div class="day-content">
+        <h2>The End of Reach</h2>
+        
+<p>And suddenly it was Day 12.</p>
+<p>The last day of Reach is always going to feel a little strange. After nearly two weeks of classes, trips, activities, random conversations and constantly meeting new people, it was time to start saying goodbye.</p>
+<p>After our final classes, teachers talked to students about how much they had progressed. Everyone then got a few last hours in Cambridge to buy souvenirs, eat lunch together and talk about how they were going to keep in touch once everyone went back to different countries and continents.</p>
+<p>Then came the final party: <strong>Reach for the Stars</strong>.</p>
+<p>The supervisors had transformed one of the lecture theatres into a space-themed party, complete with balloons, fairy lights, decorations, snacks and mocktails with names like Pineapple Stardust Wave, Blueberry Nebula and Mango Solar Flare.</p>
+<p>There were tarot cards, poker, board games and places to sit outside, but obviously the dance floor became the centre of everything. The final songs included <em>Macarena</em>, <em>Dancing Queen</em> and <em>Viva la Vida</em>, with supervisors and staff joining in too.</p>
+<p>There was also a slideshow showing everything we'd done over the two weeks. Seeing all those photos together was probably the moment when it really hit everyone how much had happened in such a short time.</p>
+<p>Students also received fun awards based on their hobbies and personalities, including things like Artistic Talent, Master Chef and Future Olympian.</p>
+<p>Finally, we walked back to our colleges for the last time. Even though I personally spent the final two days recovering in bed, I still felt like I had been part of something much bigger than just a summer course. Reach wasn't only about classes or Cambridge itself. It was about the people you meet, the things you try for the first time, the random conversations, the inside jokes, and the fact that for two weeks, a bunch of students from completely different places somehow became a little community.</p>
+<p>Leaving was sad, but I think that's how you know it was worth it.</p>
+<p><strong>Over and out. ⭐</strong></p>
 
+      </div>
+    </article>
+</main>
 
-
-<article class="card">
-
-<h3 class="card-title">
-What Makes Astrophysics Fascinating?
-</h3>
-
-<p class="card-subtitle">
-February 2026 · Astrophysics
-</p>
-
-<p>
-Exploring the questions that drive our understanding of galaxies, stars, and the universe itself.
-</p>
-
-<a href="#" class="btn btn-primary">
-Read more
-</a>
-
-</article>
-
-
-
-<article class="card">
-
-<h3 class="card-title">
-Learning Through Science Communication
-</h3>
-
-<p class="card-subtitle">
-January 2026 · Outreach
-</p>
-
-<p>
-Why sharing scientific ideas is just as important as discovering them.
-</p>
-
-<a href="#" class="btn btn-primary">
-Read more
-</a>
-
-</article>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<footer class="footer">
-© 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary
+<footer>
+  <div>Reach Cambridge · Program 2 · 2026</div>
+  <a class="back" href="index.html">← Back to my portfolio</a>
 </footer>
-
-
 </body>
 </html>
