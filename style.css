@@ -81,3 +81,151 @@ body {
 @media (min-width: 900px) {
   .about-grid { grid-template-columns: 1.5fr 1fr; align-items: start; gap: 3rem; }
 }
+
+/* =========================
+   LANGUAGE SWITCHER
+   ========================= */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.language-switcher button {
+    border: 1px solid transparent;
+    background: transparent;
+
+    font: inherit;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    padding: 0.4rem 0.55rem;
+
+    border-radius: 0.5rem;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.language-switcher button:hover {
+    transform: translateY(-1px);
+}
+
+.language-switcher button.active {
+    border-color: currentColor;
+}
+
+
+/* =========================
+   ACTIVE NAVIGATION ITEM
+   ========================= */
+
+.nav-links a.active-page {
+    font-weight: 700;
+}
+
+
+/* =========================
+   TUTORING PAGE
+   ========================= */
+
+.tutoring-page {
+    min-height: 70vh;
+}
+
+.tutoring-hero {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding:
+        6rem
+        1.5rem
+        3rem;
+
+    text-align: center;
+}
+
+.tutoring-hero h1 {
+    margin-bottom: 1rem;
+}
+
+.tutoring-intro {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+
+.tutoring-content {
+    width: min(100% - 3rem, 900px);
+
+    margin: 0 auto 5rem;
+
+    display: grid;
+    gap: 1.5rem;
+}
+
+
+.tutoring-card {
+    padding: 2rem;
+
+    border-radius: 1rem;
+
+    border: 1px solid rgba(127, 127, 127, 0.25);
+}
+
+.tutoring-card h2 {
+    margin-bottom: 1rem;
+}
+
+.tutoring-card p {
+    line-height: 1.7;
+}
+
+
+.tutoring-coming-soon {
+    text-align: center;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .nav-right {
+        gap: 0.75rem;
+    }
+
+    .language-switcher span {
+        display: none;
+    }
+
+    .language-switcher button {
+        padding: 0.4rem;
+    }
+
+    .tutoring-hero {
+        padding-top: 4rem;
+    }
+
+}
