@@ -46,6 +46,12 @@
   }
   .brand { text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
   .brand span { color: var(--accent); }
+  .blog-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
   .nav-links {
     display: flex;
     gap: 12px;
@@ -62,6 +68,27 @@
     border-radius: 8px;
   }
   .nav-links a:hover { background: var(--accent-soft); color: var(--accent); }
+  .nav-links a.active-page { color: var(--accent); font-weight: 700; }
+  .language-switcher {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    flex-shrink: 0;
+  }
+  .language-switcher button {
+    border: 1px solid transparent;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .4rem .55rem;
+    border-radius: .5rem;
+    transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .language-switcher button:hover { transform: translateY(-1px); }
+  .language-switcher button.active { border-color: currentColor; }
   .hero {
     min-height: 58vh;
     display: grid;
@@ -154,6 +181,7 @@
   @media (max-width: 720px) {
     .nav-inner { align-items: flex-start; flex-direction: column; }
     .nav-links { width: 100%; }
+    .language-switcher span { display: none; }
     .hero { min-height: 52vh; padding-top: 65px; }
     .day-card { grid-template-columns: 1fr; gap: 6px; padding: 25px; }
     .day-number { padding-top: 0; }
