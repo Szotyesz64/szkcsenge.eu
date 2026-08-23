@@ -83,19 +83,26 @@ body {
 }
 
 /* =========================
-   LANGUAGE SWITCHER
+   NAV ACTIONS (links + language switcher, right side of navbar)
    ========================= */
 
+.nav-actions,
 .nav-right {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
 }
+
+/* =========================
+   LANGUAGE SWITCHER
+   ========================= */
 
 .language-switcher {
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    flex-shrink: 0;
 }
 
 .language-switcher button {
@@ -134,6 +141,7 @@ body {
 
 .nav-links a.active-page {
     font-weight: 700;
+    color: var(--primary-dark);
 }
 
 
@@ -160,6 +168,9 @@ body {
 
 .tutoring-hero h1 {
     margin-bottom: 1rem;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
 }
 
 .tutoring-intro {
@@ -169,6 +180,7 @@ body {
 
     font-size: 1.15rem;
     line-height: 1.7;
+    color: var(--text-muted);
 }
 
 
@@ -186,16 +198,35 @@ body {
     padding: 2rem;
 
     border-radius: 1rem;
+    background: var(--surface);
 
     border: 1px solid rgba(127, 127, 127, 0.25);
+    box-shadow: var(--shadow);
 }
 
 .tutoring-card h2 {
     margin-bottom: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
 }
 
 .tutoring-card p {
     line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.tutoring-card.tutoring-contact {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+}
+
+.tutoring-card.tutoring-contact h2 {
+    color: #fff;
+}
+
+.tutoring-card.tutoring-contact p {
+    color: rgba(255,255,255,0.9);
 }
 
 
@@ -212,6 +243,7 @@ body {
 
 @media (max-width: 700px) {
 
+    .nav-actions,
     .nav-right {
         gap: 0.75rem;
     }
