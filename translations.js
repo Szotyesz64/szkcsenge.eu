@@ -1,6 +1,7 @@
 const translations = {
     en: {
         // Nav
+        brandName: "Csenge Veronika Szabó-Komoróczki",
         navHome: "Home",
         navAbout: "About",
         navResearch: "Research",
@@ -160,6 +161,7 @@ const translations = {
     },
     hu: {
         // Nav
+        brandName: "Szabó-Komoróczki Csenge Veronika",
         navHome: "Főoldal",
         navAbout: "Rólam",
         navResearch: "Kutatás",
@@ -330,8 +332,15 @@ function setLanguage(language) {
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.dataset.i18n;
-        if (translations[language][key]) {
+        if (translations[language][key] !== undefined) {
             element.textContent = translations[language][key];
+        }
+    });
+
+    document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+        const key = element.dataset.i18nAriaLabel;
+        if (translations[language][key] !== undefined) {
+            element.setAttribute("aria-label", translations[language][key]);
         }
     });
 
@@ -351,5 +360,71 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", () => {
             setLanguage(button.dataset.language);
         });
+    });
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menuPanel = document.getElementById("site-navigation");
+    const menuClose = document.querySelector(".menu-close");
+    const menuOverlay = document.querySelector(".nav-overlay");
+
+    if (!menuToggle || !menuPanel || !menuClose || !menuOverlay) return;
+
+    menuPanel.setAttribute("aria-hidden", "true");
+    let closeTimer;
+
+    const closeMenu = () => {
+        window.clearTimeout(closeTimer);
+        menuPanel.classList.remove("is-open");
+        menuOverlay.classList.remove("is-visible");
+        document.body.classList.remove("menu-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuPanel.setAttribute("aria-hidden", "true");
+        menuOverlay.setAttribute("aria-hidden", "true");
+        closeTimer = window.setTimeout(() => {
+            menuPanel.classList.remove("is-visible");
+        }, 240);
+        menuToggle.focus();
+    };
+
+    const openMenu = () => {
+        window.clearTimeout(closeTimer);
+        menuPanel.classList.add("is-visible");
+        window.requestAnimationFrame(() => {
+            if (menuPanel.classList.contains("is-visible")) {
+                menuPanel.classList.add("is-open");
+            }
+        });
+        menuOverlay.classList.add("is-visible");
+        document.body.classList.add("menu-open");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuPanel.setAttribute("aria-hidden", "false");
+        menuOverlay.setAttribute("aria-hidden", "false");
+        menuClose.focus();
+    };
+
+    menuToggle.addEventListener("click", () => {
+        if (menuPanel.classList.contains("is-open")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    menuClose.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener("click", closeMenu);
+
+    menuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && menuPanel.classList.contains("is-open")) {
+            closeMenu();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.matchMedia("(min-width: 900px)").matches && menuPanel.classList.contains("is-open")) {
+            closeMenu();
+        }
     });
 });

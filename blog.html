@@ -38,7 +38,7 @@
   .nav-inner {
     max-width: 1180px;
     margin: auto;
-    padding: 15px 24px;
+    padding: 10px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,8 +49,8 @@
   .blog-nav-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 16px;
+    flex-wrap: nowrap;
   }
   .nav-links {
     display: flex;
@@ -179,8 +179,10 @@
     font-weight: 700;
   }
   @media (max-width: 720px) {
-    .nav-inner { align-items: flex-start; flex-direction: column; }
-    .nav-links { width: 100%; }
+    .nav { backdrop-filter: none; }
+    .nav-inner { align-items: center; flex-direction: row; }
+    .blog-nav-actions { min-width: 0; }
+    .nav-links { max-width: 58vw; }
     .language-switcher span { display: none; }
     .hero { min-height: 52vh; padding-top: 65px; }
     .day-card { grid-template-columns: 1fr; gap: 6px; padding: 25px; }
@@ -193,19 +195,20 @@
   <div class="nav-inner">
 
     <a class="brand" href="index.html">
-      Csenge <span>Szabó-Komoróczki</span>
+      <span data-i18n="brandName">Csenge Veronika Szabó-Komoróczki</span>
     </a>
 
-    <div class="blog-nav-actions">
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="blog-nav-actions" id="site-navigation">
+      <button class="menu-close" type="button" aria-label="Close navigation">&times;</button>
 
       <div class="nav-links">
 
         <a href="index.html" data-i18n="navHome">
           Home
-        </a>
-
-        <a href="tutoring.html" data-i18n="navTutoring">
-          Tutoring
         </a>
 
         <a href="#day-1">Day 1</a>
@@ -222,7 +225,7 @@
 
       </div>
 
-      <div class="language-switcher" aria-label="Language selector">
+      <div class="language-switcher" data-i18n-aria-label="languageLabel" aria-label="Language">
 
         <button
           type="button"
@@ -245,6 +248,7 @@
     </div>
 
   </div>
+  <div class="nav-overlay" aria-hidden="true"></div>
 </nav>
 
 <header class="hero">

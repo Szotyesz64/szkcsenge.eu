@@ -13,25 +13,35 @@
     <div class="nav-inner">
 
       <a class="brand" href="index.html">
-        Csenge <span>Szabó-Komoróczki</span>
+        <span data-i18n="brandName">Csenge Veronika Szabó-Komoróczki</span>
       </a>
 
-      <div class="nav-actions">
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-actions" id="site-navigation">
+        <button class="menu-close" type="button" aria-label="Close navigation">&times;</button>
 
         <div class="nav-links">
-          <a href="#about" class="nav-link">About</a>
-          <a href="#research" class="nav-link">Research</a>
-          <a href="#achievements" class="nav-link">Achievements</a>
-          <a href="#leadership" class="nav-link">Leadership</a>
-          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#top" class="nav-link" data-i18n="navHome">Home</a>
+          <div class="nav-dropdown">
+            <a href="#about" class="nav-link" data-i18n="navAbout">About</a>
+            <div class="nav-dropdown-menu">
+              <a href="#research" data-i18n="navResearch">Research</a>
+              <a href="#achievements" data-i18n="navAchievements">Achievements</a>
+              <a href="#leadership" data-i18n="navLeadership">Leadership</a>
+              <a href="#experience" data-i18n="navExperience">Experience</a>
+            </div>
+          </div>
           <a href="tutoring.html" class="nav-link" data-i18n="navTutoring">
             Tutoring
           </a>
           <a href="blog.html" class="nav-link" data-i18n="navBlog">Blog</a>
-          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="nav-link" data-i18n="navContact">Contact</a>
         </div>
 
-        <div class="language-switcher" aria-label="Language selector">
+        <div class="language-switcher" data-i18n-aria-label="languageLabel" aria-label="Language">
           <button
             type="button"
             data-language="hu"
@@ -52,40 +62,41 @@
       </div>
 
     </div>
+    <div class="nav-overlay" aria-hidden="true"></div>
   </nav>
 
   <header id="top" class="hero">
     <div class="hero-inner">
-      <span class="hero-badge">Available for research &amp; collaboration</span>
+      <span class="hero-badge" data-i18n="heroBadge">Available for research &amp; collaboration</span>
       <h1 class="hero-name">Csenge Veronika Szabó-Komoróczki</h1>
-      <p class="hero-role">Physics · Astrophysics · Space Technology · Data Science</p>
-      <p class="hero-tagline">Hungarian student exploring how the universe works — and how technology can help us explore it.</p>
+      <p class="hero-role" data-i18n="heroRole">Physics · Astrophysics · Space Technology · Data Science</p>
+      <p class="hero-tagline" data-i18n="heroTagline">Hungarian student exploring how the universe works — and how technology can help us explore it.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Get in touch</a>
-        <a href="#research" class="btn btn-ghost">View my work</a>
+        <a href="#contact" class="btn btn-primary" data-i18n="heroCtaPrimary">Get in touch</a>
+        <a href="#research" class="btn btn-ghost" data-i18n="heroCtaSecondary">View my work</a>
       </div>
     </div>
   </header>
 
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-heading">About Me</h2>
+      <h2 class="section-heading" data-i18n="aboutHeading">About Me</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p>Hello! I'm Csenge, a Hungarian student passionate about understanding how the universe works and how technology can help us explore it.</p>
-          <p>My academic interests focus on physics, astrophysics, astronomy, mathematics, and computer science. I particularly enjoy projects that combine scientific research with engineering, whether that means programming simulations, analyzing data, building autonomous vehicles, designing satellites, or contributing to rocket development.</p>
-          <p>Beyond technical work, I am actively involved in science communication, student leadership, and educational initiatives. I believe that scientific knowledge becomes most valuable when it is shared, and I enjoy helping younger students discover mathematics and science.</p>
+          <p data-i18n="aboutP1">Hello! I'm Csenge, a Hungarian student passionate about understanding how the universe works and how technology can help us explore it.</p>
+          <p data-i18n="aboutP2">My academic interests focus on physics, astrophysics, astronomy, mathematics, and computer science. I particularly enjoy projects that combine scientific research with engineering, whether that means programming simulations, analyzing data, building autonomous vehicles, designing satellites, or contributing to rocket development.</p>
+          <p data-i18n="aboutP3">Beyond technical work, I am actively involved in science communication, student leadership, and educational initiatives. I believe that scientific knowledge becomes most valuable when it is shared, and I enjoy helping younger students discover mathematics and science.</p>
         </div>
         <div>
-          <p class="card-subtitle">Areas of interest</p>
+          <p class="card-subtitle" data-i18n="aboutTagsLabel">Areas of interest</p>
           <div class="about-tags">
-            <span class="tag">Physics</span>
-            <span class="tag">Astrophysics</span>
-            <span class="tag">Astronomy</span>
-            <span class="tag">Mathematics</span>
-            <span class="tag">Computer Science</span>
-            <span class="tag">Data Science</span>
-            <span class="tag">Space Technology</span>
+            <span class="tag" data-i18n="tagPhysics">Physics</span>
+            <span class="tag" data-i18n="tagAstrophysics">Astrophysics</span>
+            <span class="tag" data-i18n="tagAstronomy">Astronomy</span>
+            <span class="tag" data-i18n="tagMath">Mathematics</span>
+            <span class="tag" data-i18n="tagCS">Computer Science</span>
+            <span class="tag" data-i18n="tagDataScience">Data Science</span>
+            <span class="tag" data-i18n="tagSpaceTech">Space Technology</span>
           </div>
         </div>
       </div>
@@ -94,56 +105,56 @@
 
   <section id="research" class="section alt-bg">
     <div class="container">
-      <h2 class="section-heading">Research &amp; Engineering</h2>
-      <p class="section-intro">Hands-on work across satellite engineering, propulsion, autonomous systems, and scientific research.</p>
+      <h2 class="section-heading" data-i18n="researchHeading">Research &amp; Engineering</h2>
+      <p class="section-intro" data-i18n="researchIntro">Hands-on work across satellite engineering, propulsion, autonomous systems, and scientific research.</p>
       <div class="card-grid">
         <article class="card">
-          <h3 class="card-title">CanSat Hungary Team Leader</h3>
-          <p class="card-subtitle">Candide CanSat Team · Satellite Engineering</p>
+          <h3 class="card-title" data-i18n="research1Title">CanSat Hungary Team Leader</h3>
+          <p class="card-subtitle" data-i18n="research1Subtitle">Candide CanSat Team · Satellite Engineering</p>
           <ul class="card-points">
-            <li>Led the Candide CanSat team designing, building, and launching a custom satellite for the CanSat Hungary competition.</li>
-            <li>Mentored by industry and space-science professionals including István Marosi (Semilab) and Örs Detre (JWST MIRI instrument team).</li>
-            <li>Reached the national finals in the 2025–26 competition season.</li>
+            <li data-i18n="research1Pt1">Led the Candide CanSat team designing, building, and launching a custom satellite for the CanSat Hungary competition.</li>
+            <li data-i18n="research1Pt2">Mentored by industry and space-science professionals including István Marosi (Semilab) and Örs Detre (JWST MIRI instrument team).</li>
+            <li data-i18n="research1Pt3">Reached the national finals in the 2025–26 competition season.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Rocket Development</h3>
-          <p class="card-subtitle">Arcturus Rocket Team · ASSDS Liquid Engine Team</p>
+          <h3 class="card-title" data-i18n="research2Title">Rocket Development</h3>
+          <p class="card-subtitle" data-i18n="research2Subtitle">Arcturus Rocket Team · ASSDS Liquid Engine Team</p>
           <ul class="card-points">
-            <li>Contributed to the Arcturus Rocket Team, which developed one of Hungary's fastest and highest-flying amateur rockets, completing a successful flight campaign.</li>
-            <li>Since September 2025, a member of the ASSDS liquid rocket engine development team working on next-generation propulsion technologies.</li>
+            <li data-i18n="research2Pt1">Contributed to the Arcturus Rocket Team, which developed one of Hungary's fastest and highest-flying amateur rockets, completing a successful flight campaign.</li>
+            <li data-i18n="research2Pt2">Since September 2025, a member of the ASSDS liquid rocket engine development team working on next-generation propulsion technologies.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Autonomous Systems &amp; Robotics</h3>
-          <p class="card-subtitle">WRO Future Engineers</p>
+          <h3 class="card-title" data-i18n="research3Title">Autonomous Systems &amp; Robotics</h3>
+          <p class="card-subtitle" data-i18n="research3Subtitle">WRO Future Engineers</p>
           <ul class="card-points">
-            <li>3rd place at the Hungarian National Finals of WRO Future Engineers (2025).</li>
-            <li>7th place internationally at the WRO Open Championship Europe in Ljubljana.</li>
-            <li>Designed, manufactured, and programmed an autonomous self-driving vehicle as a two-person team.</li>
+            <li data-i18n="research3Pt1">3rd place at the Hungarian National Finals of WRO Future Engineers (2025).</li>
+            <li data-i18n="research3Pt2">7th place internationally at the WRO Open Championship Europe in Ljubljana.</li>
+            <li data-i18n="research3Pt3">Designed, manufactured, and programmed an autonomous self-driving vehicle as a two-person team.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Lunar Geology Research</h3>
-          <p class="card-subtitle">with Dr. Ákos Kereszturi</p>
+          <h3 class="card-title" data-i18n="research4Title">Lunar Geology Research</h3>
+          <p class="card-subtitle" data-i18n="research4Subtitle">with Dr. Ákos Kereszturi</p>
           <ul class="card-points">
-            <li>Worked with Dr. Ákos Kereszturi, President of the Hungarian Astronomical Association, investigating lunar surface formations.</li>
-            <li>Focused on mapping and analyzing lunar ligament structures.</li>
+            <li data-i18n="research4Pt1">Worked with Dr. Ákos Kereszturi, President of the Hungarian Astronomical Association, investigating lunar surface formations.</li>
+            <li data-i18n="research4Pt2">Focused on mapping and analyzing lunar ligament structures.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Laser–Material Interaction Research</h3>
-          <p class="card-subtitle">HUN-REN Wigner Research Centre for Physics</p>
+          <h3 class="card-title" data-i18n="research5Title">Laser–Material Interaction Research</h3>
+          <p class="card-subtitle" data-i18n="research5Subtitle">HUN-REN Wigner Research Centre for Physics</p>
           <ul class="card-points">
-            <li>Project: "Morphology studies on craters created by femtosecond laser irradiation in UDMA polymer targets embedded with plasmonic gold nanorods."</li>
-            <li>Developing simulations and computational tools to support experimental analysis.</li>
+            <li data-i18n="research5Pt1">Project: "Morphology studies on craters created by femtosecond laser irradiation in UDMA polymer targets embedded with plasmonic gold nanorods."</li>
+            <li data-i18n="research5Pt2">Developing simulations and computational tools to support experimental analysis.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Spectroscopic Simulations</h3>
-          <p class="card-subtitle">University of Groningen · from 2026</p>
+          <h3 class="card-title" data-i18n="research6Title">Spectroscopic Simulations</h3>
+          <p class="card-subtitle" data-i18n="research6Subtitle">University of Groningen · from 2026</p>
           <ul class="card-points">
-            <li>Joining a student research project focused on spectroscopic simulations, filter adaptation methods, and astrophysical data analysis.</li>
+            <li data-i18n="research6Pt1">Joining a student research project focused on spectroscopic simulations, filter adaptation methods, and astrophysical data analysis.</li>
           </ul>
         </article>
       </div>
@@ -152,32 +163,32 @@
 
   <section id="achievements" class="section">
     <div class="container">
-      <h2 class="section-heading">Selected Achievements</h2>
+      <h2 class="section-heading" data-i18n="achievementsHeading">Selected Achievements</h2>
       <div class="card-grid">
         <article class="card">
-          <h3 class="card-title">Mathematics</h3>
+          <h3 class="card-title" data-i18n="ach1Title">Mathematics</h3>
           <ul class="card-points">
-            <li>Selected for Maths Beyond Limits 2025, an international camp admitting only ~60 students worldwide.</li>
-            <li>17th place internationally in the 2024 KöMaL Problem Solving Competition.</li>
-            <li>Competitor in numerous national competitions: Kalmár, Varga Tamás, Kürschák, Dürer, and Surányi.</li>
+            <li data-i18n="ach1Pt1">Selected for Maths Beyond Limits 2025, an international camp admitting only ~60 students worldwide.</li>
+            <li data-i18n="ach1Pt2">17th place internationally in the 2024 KöMaL Problem Solving Competition.</li>
+            <li data-i18n="ach1Pt3">Competitor in numerous national competitions: Kalmár, Varga Tamás, Kürschák, Dürer, and Surányi.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Science Competitions</h3>
+          <h3 class="card-title" data-i18n="ach2Title">Science Competitions</h3>
           <ul class="card-points">
-            <li>4th place — National Dürer Physics Team Competition (2026).</li>
-            <li>4th place internationally — Jakucs László Geography Competition (2024).</li>
-            <li>1st place nationally — Bolyai Natural Sciences Team Competition (2023).</li>
-            <li>2nd place — Szántay Csaba Chemistry Competition (2023).</li>
+            <li data-i18n="ach2Pt1">4th place — National Dürer Physics Team Competition (2026).</li>
+            <li data-i18n="ach2Pt2">4th place internationally — Jakucs László Geography Competition (2024).</li>
+            <li data-i18n="ach2Pt3">1st place nationally — Bolyai Natural Sciences Team Competition (2023).</li>
+            <li data-i18n="ach2Pt4">2nd place — Szántay Csaba Chemistry Competition (2023).</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Scholarships &amp; Recognition</h3>
+          <h3 class="card-title" data-i18n="ach3Title">Scholarships &amp; Recognition</h3>
           <ul class="card-points">
-            <li>STEM Sisters Program mentee (2025) — developed an AI-powered data processing application.</li>
-            <li>Sigma Technology Hungary Special Award at NASA Space Apps Challenge Hungary for a Minecraft-based space education platform.</li>
-            <li>MOL New Europe Foundation support to attend the Reach Cambridge Physics &amp; Astronomy Programme at the University of Cambridge (2026).</li>
-            <li>Applicant under international review for the Global Talent Mentoring Program in astrophysics research.</li>
+            <li data-i18n="ach3Pt1">STEM Sisters Program mentee (2025) — developed an AI-powered data processing application.</li>
+            <li data-i18n="ach3Pt2">Sigma Technology Hungary Special Award at NASA Space Apps Challenge Hungary for a Minecraft-based space education platform.</li>
+            <li data-i18n="ach3Pt3">MOL New Europe Foundation support to attend the Reach Cambridge Physics &amp; Astronomy Programme at the University of Cambridge (2026).</li>
+            <li data-i18n="ach3Pt4">Applicant under international review for the Global Talent Mentoring Program in astrophysics research.</li>
           </ul>
         </article>
       </div>
@@ -186,28 +197,28 @@
 
   <section id="leadership" class="section alt-bg">
     <div class="container">
-      <h2 class="section-heading">Leadership &amp; Community</h2>
+      <h2 class="section-heading" data-i18n="leadershipHeading">Leadership &amp; Community</h2>
       <div class="card-grid">
         <article class="card">
-          <h3 class="card-title">Science Outreach</h3>
+          <h3 class="card-title" data-i18n="lead1Title">Science Outreach</h3>
           <ul class="card-points">
-            <li>Passionate about making science accessible and engaging for younger generations.</li>
-            <li>Working with István Marosi and Ákos Kereszturi to develop a platform for young planetary observers — supporting collaboration, observation partner matching, and science communication.</li>
+            <li data-i18n="lead1Pt1">Passionate about making science accessible and engaging for younger generations.</li>
+            <li data-i18n="lead1Pt2">Working with István Marosi and Ákos Kereszturi to develop a platform for young planetary observers — supporting collaboration, observation partner matching, and science communication.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Student Leadership</h3>
+          <h3 class="card-title" data-i18n="lead2Title">Student Leadership</h3>
           <ul class="card-points">
-            <li>Student Communications Officer, Fazekas Student Government.</li>
-            <li>Organizer of the Fazekas+ Festival in two consecutive academic years.</li>
-            <li>Co-founder and contributor to student initiatives promoting community engagement.</li>
+            <li data-i18n="lead2Pt1">Student Communications Officer, Fazekas Student Government.</li>
+            <li data-i18n="lead2Pt2">Organizer of the Fazekas+ Festival in two consecutive academic years.</li>
+            <li data-i18n="lead2Pt3">Co-founder and contributor to student initiatives promoting community engagement.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Volunteering</h3>
+          <h3 class="card-title" data-i18n="lead3Title">Volunteering</h3>
           <ul class="card-points">
-            <li>Astronomy outreach volunteer and student assistant at the Svábhegy Observatory.</li>
-            <li>Mathematics and physics tutor through the Taléta educational program.</li>
+            <li data-i18n="lead3Pt1">Astronomy outreach volunteer and student assistant at the Svábhegy Observatory.</li>
+            <li data-i18n="lead3Pt2">Mathematics and physics tutor through the Taléta educational program.</li>
           </ul>
         </article>
       </div>
@@ -216,34 +227,34 @@
 
   <section id="experience" class="section">
     <div class="container">
-      <h2 class="section-heading">Experience</h2>
+      <h2 class="section-heading" data-i18n="experienceHeading">Experience</h2>
       <div class="card-grid">
         <article class="card">
-          <h3 class="card-title">University Research Assistant</h3>
-          <p class="card-subtitle">HUN-REN Wigner Research Centre for Physics</p>
+          <h3 class="card-title" data-i18n="exp1Title">University Research Assistant</h3>
+          <p class="card-subtitle" data-i18n="exp1Subtitle">HUN-REN Wigner Research Centre for Physics</p>
           <ul class="card-points">
-            <li>Assisted in scientific publications and technical reports.</li>
-            <li>Conducted interferometer-based laboratory experiments.</li>
-            <li>Performed wave propagation simulations using MEEP.</li>
-            <li>Analyzed complex scientific datasets.</li>
+            <li data-i18n="exp1Pt1">Assisted in scientific publications and technical reports.</li>
+            <li data-i18n="exp1Pt2">Conducted interferometer-based laboratory experiments.</li>
+            <li data-i18n="exp1Pt3">Performed wave propagation simulations using MEEP.</li>
+            <li data-i18n="exp1Pt4">Analyzed complex scientific datasets.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Data Scientist Intern</h3>
-          <p class="card-subtitle">Semilab Semiconductor Physics Laboratory</p>
+          <h3 class="card-title" data-i18n="exp2Title">Data Scientist Intern</h3>
+          <p class="card-subtitle" data-i18n="exp2Subtitle">Semilab Semiconductor Physics Laboratory</p>
           <ul class="card-points">
-            <li>Produced weekly production data analyses.</li>
-            <li>Developed and debugged software tools.</li>
-            <li>Contributed to process optimization and product development.</li>
+            <li data-i18n="exp2Pt1">Produced weekly production data analyses.</li>
+            <li data-i18n="exp2Pt2">Developed and debugged software tools.</li>
+            <li data-i18n="exp2Pt3">Contributed to process optimization and product development.</li>
           </ul>
         </article>
         <article class="card">
-          <h3 class="card-title">Astronomy Educator</h3>
-          <p class="card-subtitle">Konkoly Thege Miklós Institute of Astronomy</p>
+          <h3 class="card-title" data-i18n="exp3Title">Astronomy Educator</h3>
+          <p class="card-subtitle" data-i18n="exp3Subtitle">Konkoly Thege Miklós Institute of Astronomy</p>
           <ul class="card-points">
-            <li>Delivered astronomy and astrophysics presentations.</li>
-            <li>Prepared educational materials.</li>
-            <li>Operated telescopes and guided public observing sessions.</li>
+            <li data-i18n="exp3Pt1">Delivered astronomy and astrophysics presentations.</li>
+            <li data-i18n="exp3Pt2">Prepared educational materials.</li>
+            <li data-i18n="exp3Pt3">Operated telescopes and guided public observing sessions.</li>
           </ul>
         </article>
       </div>
@@ -253,18 +264,18 @@
   <section id="contact" class="section">
     <div class="container">
       <div class="contact-card">
-        <h2>Let's connect</h2>
-        <p>Always interested in research collaborations, engineering projects, science outreach, and opportunities in astrophysics, space technology, and data science.</p>
+        <h2 data-i18n="contactHeading">Let's connect</h2>
+        <p data-i18n="contactText">Always interested in research collaborations, engineering projects, science outreach, and opportunities in astrophysics, space technology, and data science.</p>
         <div class="contact-actions">
-          <a href="mailto:szabokcsenge@gmail.com" class="contact-btn">szabokcsenge@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#31424b50535e5a5242545f565471565c50585d1f525e5c" class="contact-btn"><span class="__cf_email__" data-cfemail="b2c1c8d3d0ddd9d1c1d7dcd5d7f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></a>
         </div>
-        <p class="contact-meta">📍 Budapest, Hungary</p>
+        <p class="contact-meta" data-i18n="contactMeta">📍 Budapest, Hungary</p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    © 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary
+    <span data-i18n="footerText">© 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary</span>
   </footer>
-</body>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
 </html>
