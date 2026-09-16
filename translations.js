@@ -259,14 +259,13 @@ const translations = {
         editAboutP2:
             "As Head of the Videography Team at Fazekas Mihály Secondary School, I lead a team of five student videographers, filming and editing everything from STEM class promos to prom, freshman orientation camps, and principal speeches.",
         editAboutP3:
-            "I edit primarily in Premiere Pro and Lightroom, with Canva for graphics, DaVinci Resolve for color, and CapCut AI to speed up rough cuts — always looking for tools that help a story come together faster.",
+            "I edit primarily in Premiere Pro and Lightroom, with Canva for graphics and DaVinci Resolve for color — always looking for tools that help a story come together faster.",
 
         editToolkitHeading: "Toolkit",
         toolPremiere: "Premiere Pro",
         toolLightroom: "Lightroom",
         toolCanva: "Canva",
         toolResolve: "DaVinci Resolve",
-        toolCapcut: "CapCut AI",
 
         editExp1Title: "Head of Videography Team",
         editExp1Subtitle: "Fazekas Mihály Secondary School · 2025–2026",
@@ -824,14 +823,13 @@ const translations = {
         editAboutP2:
             "A Fazekas Mihály Gimnázium videós csapatának vezetőjeként öt diákoperatőrből álló csapatot vezetek és képzek, és forgatunk-vágunk mindent a STEM órák promóitól kezdve a szalagavatón és a gólyatáborokon át az igazgatói beszédekig.",
         editAboutP3:
-            "Elsősorban Premiere Pro-ban és Lightroomban vágok, Canvával készítem a grafikákat, DaVinci Resolve-val a színezést, a CapCut AI-t pedig a nyersvágás felgyorsítására használom — mindig olyan eszközöket keresek, amelyekkel gyorsabban áll össze egy történet.",
+            "Elsősorban Premiere Pro-ban és Lightroomban vágok, Canvával készítem a grafikákat a DaVinci Resolve-val a színezést — mindig olyan eszközöket keresek, amelyekkel gyorsabban áll össze egy történet.",
 
         editToolkitHeading: "Eszköztár",
         toolPremiere: "Premiere Pro",
         toolLightroom: "Lightroom",
         toolCanva: "Canva",
         toolResolve: "DaVinci Resolve",
-        toolCapcut: "CapCut AI",
 
         editExp1Title: "Videós csapat vezetője",
         editExp1Subtitle: "Fazekas Mihály Gimnázium · 2025–2026",
