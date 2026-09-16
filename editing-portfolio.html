@@ -221,9 +221,22 @@
           <a href="blog.html" class="nav-link" data-i18n="navBlog">Blog</a>
           <a href="index.html#contact" class="nav-link" data-i18n="navContact">Contact</a>
         </div>
-        <div class="language-switcher">
-          <button data-language="en" class="active"><span>EN</span></button>
-          <button data-language="hu"><span>HU</span></button>
+        <div class="language-switcher" data-i18n-aria-label="languageLabel" aria-label="Language">
+          <button
+            type="button"
+            data-language="hu"
+            aria-label="Magyar"
+          >
+            <svg class="flag-icon" viewBox="0 0 32 20" role="img" aria-hidden="true"><rect width="32" height="6.67" fill="#ce2939"/><rect y="6.67" width="32" height="6.66" fill="#fff"/><rect y="13.33" width="32" height="6.67" fill="#477050"/></svg>
+          </button>
+
+          <button
+            type="button"
+            data-language="en"
+            aria-label="English"
+          >
+            <svg class="flag-icon" viewBox="0 0 32 20" role="img" aria-hidden="true"><rect width="32" height="20" fill="#012169"/><path d="M0 0 32 20M32 0 0 20" stroke="#fff" stroke-width="4"/><path d="M0 0 32 20M32 0 0 20" stroke="#c8102e" stroke-width="2"/><path d="M16 0v20M0 10h32" stroke="#fff" stroke-width="6"/><path d="M16 0v20M0 10h32" stroke="#c8102e" stroke-width="3"/></svg>
+          </button>
         </div>
       </div>
 
@@ -255,7 +268,7 @@
       <h2 class="section-heading" data-i18n="editProjectsHeading">Featured Projects</h2>
       <p class="section-intro" data-i18n="editProjectsIntro">A few of the videos I've filmed, edited, and helped bring to life.</p>
       <div class="project-row">
-        <a href="#" class="project-card project-card--1">
+        <a href="https://www.facebook.com/watch/?v=1329671788040852" class="project-card project-card--1">
           <span class="project-badge" data-i18n="project1Badge">Promo</span>
           <span class="project-play" aria-hidden="true">▶</span>
           <div class="project-info">
@@ -263,7 +276,7 @@
             <p data-i18n="project1Blurb">A short introductory video made to promote STEM classes and school programs to new students.</p>
           </div>
         </a>
-        <a href="#" class="project-card project-card--2">
+        <a href="https://drive.google.com/file/d/1MVIyikxA7FvpA9VdT7wf760wI3uwTyln/view" class="project-card project-card--2">
           <span class="project-badge" data-i18n="project2Badge">Documentary</span>
           <span class="project-play" aria-hidden="true">▶</span>
           <div class="project-info">
@@ -271,7 +284,7 @@
             <p data-i18n="project2Blurb">The introduction video for our CanSat miniature satellite project, made for the national competition.</p>
           </div>
         </a>
-        <a href="#" class="project-card project-card--3">
+        <a href="https://www.youtube.com/watch?v=Uy3hRvlbkbE" class="project-card project-card--3">
           <span class="project-badge" data-i18n="project3Badge">Event Recap</span>
           <span class="project-play" aria-hidden="true">▶</span>
           <div class="project-info">
