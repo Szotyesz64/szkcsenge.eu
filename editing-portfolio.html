@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title data-i18n="editPageTitle">Video Editing Portfolio — Csenge Veronika Szabó-Komoróczki</title>
+<link rel="stylesheet" href="style.css" />
+<style>
+  /* =========================================================
+     PAGE-SPECIFIC STYLES — Editing Portfolio
+     Built on top of the shared design tokens in style.css
+     (var(--primary), var(--accent), var(--surface) etc.)
+     ========================================================= */
+
+  /* ---- Reel hero (Netflix-inspired banner) ---- */
+  .reel-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(1100px 600px at 88% -10%, rgba(168,128,219,0.35), transparent 60%),
+      radial-gradient(800px 500px at 8% 110%, rgba(110,231,216,0.22), transparent 55%),
+      linear-gradient(135deg, #171225 0%, #241a38 45%, #3a2557 100%);
+    color: #fff;
+    padding: 6.5rem 0 5rem;
+  }
+  .reel-hero::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 10px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 14px, transparent 14px 28px);
+    opacity: 0.5;
+  }
+  .reel-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .reel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .reel-badge::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .reel-title {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 1.5rem 0 0.5rem;
+    padding: 0.08em 0 0.12em;
+    background: linear-gradient(120deg, #fff 30%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .reel-role {
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  .reel-tagline {
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    color: rgba(255,255,255,0.78);
+    max-width: 52ch;
+    margin: 0 0 2rem;
+  }
+  .reel-actions { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .btn-ghost-dark {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .btn-ghost-dark:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .reel-visual {
+    justify-self: center;
+    position: relative;
+    width: clamp(180px, 32vw, 280px);
+    aspect-ratio: 1;
+  }
+  .reel-visual-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--primary));
+    opacity: 0.55;
+    filter: blur(2px);
+    animation: reel-spin 16s linear infinite;
+  }
+  .reel-visual-play {
+    position: absolute;
+    inset: 14%;
+    border-radius: 50%;
+    background: rgba(23, 18, 37, 0.85);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #fff;
+    backdrop-filter: blur(4px);
+  }
+  @keyframes reel-spin { to { transform: rotate(360deg); } }
+  @media (min-width: 900px) {
+    .reel-hero-inner { grid-template-columns: 1.5fr 1fr; }
+    .reel-visual { justify-self: end; }
+  }
+
+  /* ---- Project row (thumbnail cards) ---- */
+  .project-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+  }
+  .project-card {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius);
+    overflow: hidden;
+    padding: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-size: cover;
+    background-position: center;
+  }
+  .project-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20,15,32,0) 35%, rgba(20,15,32,0.85) 100%);
+  }
+  .project-card--1 { background-image: linear-gradient(135deg, #6a4fa0, #a880db); }
+  .project-card--2 { background-image: linear-gradient(135deg, #2f8f82, #6ee7d8); }
+  .project-card--3 { background-image: linear-gradient(135deg, #8e5ed1, #38bfae); }
+  .project-badge {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    z-index: 2;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .project-play {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    z-index: 2;
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+  .project-info { position: relative; z-index: 2; }
+  .project-info h3 { margin: 0 0 0.3rem; font-size: 1.15rem; font-weight: 700; }
+  .project-info p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.85); line-height: 1.45; }
+
+  /* ---- Toolkit ---- */
+  .toolkit-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="weblap.html" class="brand" data-i18n="brandName">Csenge Veronika Szabó-Komoróczki</a>
+
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-actions" id="site-navigation">
+        <button class="menu-close" aria-label="Close menu">&times;</button>
+        <div class="nav-links">
+          <a href="weblap.html" class="nav-link" data-i18n="navHome">Home</a>
+          <a href="weblap.html#about" class="nav-link" data-i18n="navAbout">About</a>
+          <a href="weblap.html#research" class="nav-link" data-i18n="navResearch">Research</a>
+          <a href="weblap.html#achievements" class="nav-link" data-i18n="navAchievements">Achievements</a>
+          <a href="weblap.html#leadership" class="nav-link" data-i18n="navLeadership">Leadership</a>
+          <a href="weblap.html#experience" class="nav-link" data-i18n="navExperience">Experience</a>
+          <a href="editing-portfolio.html" class="nav-link active-page" data-i18n="navEditing">Editing</a>
+          <a href="tutoring.html" class="nav-link" data-i18n="navTutoring">Tutoring</a>
+          <a href="weblap.html#contact" class="nav-link" data-i18n="navContact">Contact</a>
+        </div>
+        <div class="language-switcher">
+          <button data-language="en" class="active"><span>EN</span></button>
+          <button data-language="hu"><span>HU</span></button>
+        </div>
+      </div>
+
+      <div class="nav-overlay"></div>
+    </div>
+  </nav>
+
+  <header id="top" class="reel-hero">
+    <div class="reel-hero-inner">
+      <div>
+        <span class="reel-badge" data-i18n="editHeroBadge">Available for video &amp; editing projects</span>
+        <h1 class="reel-title" data-i18n="editHeroTitle">My Video Work</h1>
+        <p class="reel-role" data-i18n="editHeroRole">Video Editor · Videographer · Creative Technologist</p>
+        <p class="reel-tagline" data-i18n="editHeroTagline">From satellite launches to festival nights — turning raw footage into stories worth watching.</p>
+        <div class="reel-actions">
+          <a href="#projects" class="btn btn-primary" data-i18n="editHeroCtaPrimary">Watch the reel</a>
+          <a href="#projects" class="btn btn-ghost btn-ghost-dark" data-i18n="editHeroCtaSecondary">See my projects</a>
+        </div>
+      </div>
+      <div class="reel-visual" aria-hidden="true">
+        <div class="reel-visual-ring"></div>
+        <div class="reel-visual-play">▶</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-heading" data-i18n="editProjectsHeading">Featured Projects</h2>
+      <p class="section-intro" data-i18n="editProjectsIntro">A few of the videos I've filmed, edited, and helped bring to life.</p>
+      <div class="project-row">
+        <a href="#" class="project-card project-card--1">
+          <span class="project-badge" data-i18n="project1Badge">Promo</span>
+          <span class="project-play" aria-hidden="true">▶</span>
+          <div class="project-info">
+            <h3 data-i18n="project1Title">STEM Class Promo</h3>
+            <p data-i18n="project1Blurb">A short introductory video made to promote STEM classes and school programs to new students.</p>
+          </div>
+        </a>
+        <a href="#" class="project-card project-card--2">
+          <span class="project-badge" data-i18n="project2Badge">Documentary</span>
+          <span class="project-play" aria-hidden="true">▶</span>
+          <div class="project-info">
+            <h3 data-i18n="project2Title">CanSat Introduction Video</h3>
+            <p data-i18n="project2Blurb">The introduction video for our CanSat miniature satellite project, made for the national competition.</p>
+          </div>
+        </a>
+        <a href="#" class="project-card project-card--3">
+          <span class="project-badge" data-i18n="project3Badge">Event Recap</span>
+          <span class="project-play" aria-hidden="true">▶</span>
+          <div class="project-info">
+            <h3 data-i18n="project3Title">Fazekas Festival Aftermovie</h3>
+            <p data-i18n="project3Blurb">Contributed roughly 30–40% of the footage used in the 2025 Fazekas Festival aftermovie.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section alt-bg">
+    <div class="container">
+      <h2 class="section-heading" data-i18n="editAboutHeading">About My Editing Work</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="editAboutP1">I'm Csenge, a video editor and creative technologist who loves turning chaotic footage — school events, satellite launches, competitions — into something people actually want to watch.</p>
+          <p data-i18n="editAboutP2">As Head of the Videography Team at Fazekas Mihály Secondary School, I lead a team of five student videographers, filming and editing everything from STEM class promos to prom, freshman orientation camps, and principal speeches.</p>
+          <p data-i18n="editAboutP3">I edit primarily in Premiere Pro and Lightroom, with Canva for graphics, DaVinci Resolve for color, and CapCut AI to speed up rough cuts — always looking for tools that help a story come together faster.</p>
+        </div>
+        <div>
+          <p class="card-subtitle" data-i18n="editToolkitHeading">Toolkit</p>
+          <div class="toolkit-tags">
+            <span class="tag" data-i18n="toolPremiere">Premiere Pro</span>
+            <span class="tag" data-i18n="toolLightroom">Lightroom</span>
+            <span class="tag" data-i18n="toolCanva">Canva</span>
+            <span class="tag" data-i18n="toolResolve">DaVinci Resolve</span>
+            <span class="tag" data-i18n="toolCapcut">CapCut AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-heading" data-i18n="experienceHeading">Experience</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3 class="card-title" data-i18n="editExp1Title">Head of Videography Team</h3>
+          <p class="card-subtitle" data-i18n="editExp1Subtitle">Fazekas Mihály Secondary School · 2025–2026</p>
+          <ul class="card-points">
+            <li data-i18n="editExp1Pt1">Created introductory videos for STEM classes and school programs.</li>
+            <li data-i18n="editExp1Pt2">Led and trained a team of five student videographers.</li>
+            <li data-i18n="editExp1Pt3">Earned the role through the quality of video work and contributions to school events.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3 class="card-title" data-i18n="editExp2Title">Videographer &amp; Video Editor</h3>
+          <p class="card-subtitle" data-i18n="editExp2Subtitle">Fazekas Mihály Secondary School · 2023–2026</p>
+          <ul class="card-points">
+            <li data-i18n="editExp2Pt1">Filmed and edited content for school events, competitions, camps, ceremonies, and external requests.</li>
+            <li data-i18n="editExp2Pt2">Operated cameras for the Fazekas Festival, debate competitions, prom, and freshman orientation camps.</li>
+            <li data-i18n="editExp2Pt3">Edited and enhanced footage using Premiere Pro and Lightroom.</li>
+            <li data-i18n="editExp2Pt4">Contributed roughly 30–40% of the footage used in the 2025 Fazekas Festival aftermovie.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="contact-card">
+        <h2 data-i18n="contactHeading">Let's connect</h2>
+        <p data-i18n="editContactText">Have a school event, promo, or short film that needs filming or editing? I'd love to help bring it together.</p>
+        <div class="contact-actions">
+          <a href="mailto:szabokcsenge@gmail.com" class="contact-btn">szabokcsenge@gmail.com</a>
+        </div>
+        <p class="contact-meta" data-i18n="contactMeta">📍 Budapest, Hungary</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" data-i18n="footerText">
+    © 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary
+  </footer>
+
+  <script src="translations.js"></script>
+</body>
+</html>
