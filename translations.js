@@ -12,6 +12,7 @@ const translations = {
         navLeadership: "Leadership",
         navExperience: "Experience",
         navBlog: "Blog",
+        navEditing: "Editing",
         navTutoring: "Tutoring",
         navContact: "Contact",
 
@@ -215,6 +216,80 @@ const translations = {
 
         footerText:
             "© 2026 Csenge Veronika Szabó-Komoróczki · Built with curiosity in Budapest, Hungary",
+
+        // =========================================================
+        // EDITING PORTFOLIO
+        // =========================================================
+
+        editPageTitle:
+            "Video Editing Portfolio — Csenge Veronika Szabó-Komoróczki",
+
+        editHeroBadge: "Available for video & editing projects",
+        editHeroTitle: "My Video Work",
+        editHeroRole: "Video Editor · Videographer · Creative Technologist",
+        editHeroTagline:
+            "From satellite launches to festival nights — turning raw footage into stories worth watching.",
+        editHeroCtaPrimary: "Watch the reel",
+        editHeroCtaSecondary: "See my projects",
+
+        editProjectsHeading: "Featured Projects",
+        editProjectsIntro:
+            "A few of the videos I've filmed, edited, and helped bring to life.",
+
+        project1Badge: "Promo",
+        project1Title: "STEM Class Promo",
+        project1Blurb:
+            "A short introductory video made to promote STEM classes and school programs to new students.",
+
+        project2Badge: "Documentary",
+        project2Title: "CanSat Introduction Video",
+        project2Blurb:
+            "The introduction video for our CanSat miniature satellite project, made for the national competition.",
+
+        project3Badge: "Event Recap",
+        project3Title: "Fazekas Festival Aftermovie",
+        project3Blurb:
+            "Contributed roughly 30–40% of the footage used in the 2025 Fazekas Festival aftermovie.",
+
+        editProjectWatch: "Watch",
+
+        editAboutHeading: "About My Editing Work",
+        editAboutP1:
+            "I'm Csenge, a video editor and creative technologist who loves turning chaotic footage — school events, satellite launches, competitions — into something people actually want to watch.",
+        editAboutP2:
+            "As Head of the Videography Team at Fazekas Mihály Secondary School, I lead a team of five student videographers, filming and editing everything from STEM class promos to prom, freshman orientation camps, and principal speeches.",
+        editAboutP3:
+            "I edit primarily in Premiere Pro and Lightroom, with Canva for graphics, DaVinci Resolve for color, and CapCut AI to speed up rough cuts — always looking for tools that help a story come together faster.",
+
+        editToolkitHeading: "Toolkit",
+        toolPremiere: "Premiere Pro",
+        toolLightroom: "Lightroom",
+        toolCanva: "Canva",
+        toolResolve: "DaVinci Resolve",
+        toolCapcut: "CapCut AI",
+
+        editExp1Title: "Head of Videography Team",
+        editExp1Subtitle: "Fazekas Mihály Secondary School · 2025–2026",
+        editExp1Pt1:
+            "Created introductory videos for STEM classes and school programs.",
+        editExp1Pt2:
+            "Led and trained a team of five student videographers.",
+        editExp1Pt3:
+            "Earned the role through the quality of video work and contributions to school events.",
+
+        editExp2Title: "Videographer & Video Editor",
+        editExp2Subtitle: "Fazekas Mihály Secondary School · 2023–2026",
+        editExp2Pt1:
+            "Filmed and edited content for school events, competitions, camps, ceremonies, and external requests.",
+        editExp2Pt2:
+            "Operated cameras for the Fazekas Festival, debate competitions, prom, and freshman orientation camps.",
+        editExp2Pt3:
+            "Edited and enhanced footage using Premiere Pro and Lightroom.",
+        editExp2Pt4:
+            "Contributed roughly 30–40% of the footage used in the 2025 Fazekas Festival aftermovie.",
+
+        editContactText:
+            "Have a school event, promo, or short film that needs filming or editing? I'd love to help bring it together.",
 
         // =========================================================
         // TUTORING
@@ -472,6 +547,7 @@ const translations = {
         navLeadership: "Közösségi szerepvállalás",
         navExperience: "Tapasztalat",
         navBlog: "Blog",
+        navEditing: "Videószerkesztés",
         navTutoring: "Magántanítás",
         navContact: "Kapcsolat",
 
@@ -703,6 +779,82 @@ const translations = {
 
         footerText:
             "© 2026 Szabó-Komoróczki Csenge Veronika · Fejlesztve, Budapesten",
+
+        // =========================================================
+        // EDITING PORTFOLIO
+        // =========================================================
+
+        editPageTitle:
+            "Videószerkesztői portfólió — Szabó-Komoróczki Csenge Veronika",
+
+        editHeroBadge:
+            "Nyitott vagyok videós és vágói projektekre",
+        editHeroTitle: "A videós munkáim",
+        editHeroRole:
+            "Videószerkesztő · Operatőr · Kreatív technológus",
+        editHeroTagline:
+            "Műholdindításoktól a fesztiválestékig — nyers felvételekből olyan történeteket vágok, amiket érdemes megnézni.",
+        editHeroCtaPrimary: "Showreel megtekintése",
+        editHeroCtaSecondary: "Projektjeim",
+
+        editProjectsHeading: "Kiemelt projektek",
+        editProjectsIntro:
+            "Néhány videó, amit forgattam, vágtam, és aminek életre keltésében részt vettem.",
+
+        project1Badge: "Promó",
+        project1Title: "STEM órák promóvideója",
+        project1Blurb:
+            "Rövid bemutatkozó videó, amely a STEM órákat és iskolai programokat mutatja be az új diákoknak.",
+
+        project2Badge: "Dokumentumfilm",
+        project2Title: "CanSat bemutatkozó videó",
+        project2Blurb:
+            "A CanSat miniműhold-projektünk bemutatkozó videója, amely az országos versenyre készült.",
+
+        project3Badge: "Eseményösszefoglaló",
+        project3Title: "Fazekas Fesztivál aftermovie",
+        project3Blurb:
+            "A 2025-ös Fazekas Fesztivál aftermovie-jában felhasznált felvételek nagyjából 30–40%-át én készítettem.",
+
+        editProjectWatch: "Megnézem",
+
+        editAboutHeading: "A videós munkámról",
+        editAboutP1:
+            "Csenge vagyok, videószerkesztő és kreatív technológus, aki szereti a kaotikus nyersanyagokat — iskolai eseményeket, műholdindításokat, versenyeket — olyan videókká alakítani, amiket az emberek tényleg szívesen megnéznek.",
+        editAboutP2:
+            "A Fazekas Mihály Gimnázium videós csapatának vezetőjeként öt diákoperatőrből álló csapatot vezetek és képzek, és forgatunk-vágunk mindent a STEM órák promóitól kezdve a szalagavatón és a gólyatáborokon át az igazgatói beszédekig.",
+        editAboutP3:
+            "Elsősorban Premiere Pro-ban és Lightroomban vágok, Canvával készítem a grafikákat, DaVinci Resolve-val a színezést, a CapCut AI-t pedig a nyersvágás felgyorsítására használom — mindig olyan eszközöket keresek, amelyekkel gyorsabban áll össze egy történet.",
+
+        editToolkitHeading: "Eszköztár",
+        toolPremiere: "Premiere Pro",
+        toolLightroom: "Lightroom",
+        toolCanva: "Canva",
+        toolResolve: "DaVinci Resolve",
+        toolCapcut: "CapCut AI",
+
+        editExp1Title: "Videós csapat vezetője",
+        editExp1Subtitle: "Fazekas Mihály Gimnázium · 2025–2026",
+        editExp1Pt1:
+            "Bemutatkozó videókat készítettem STEM órákhoz és iskolai programokhoz.",
+        editExp1Pt2:
+            "Öt fős diákoperatőr-csapatot vezettem és képeztem.",
+        editExp1Pt3:
+            "A szerepet a videós munkám minősége és az iskolai eseményekhez való hozzájárulásom alapján érdemeltem ki.",
+
+        editExp2Title: "Operatőr és videószerkesztő",
+        editExp2Subtitle: "Fazekas Mihály Gimnázium · 2023–2026",
+        editExp2Pt1:
+            "Iskolai eseményekhez, versenyekhez, táborokhoz, ünnepségekhez és külsős felkérésekhez forgattam és vágtam anyagokat.",
+        editExp2Pt2:
+            "Kamerát kezeltem a Fazekas Fesztiválon, vitaversenyeken, szalagavatón és gólyatáborokban.",
+        editExp2Pt3:
+            "A felvételeket Premiere Pro-ban és Lightroomban vágtam és dolgoztam fel.",
+        editExp2Pt4:
+            "A 2025-ös Fazekas Fesztivál aftermovie-jában felhasznált anyag nagyjából 30–40%-át én készítettem.",
+
+        editContactText:
+            "Van egy iskolai eseményed, promód vagy rövidfilmed, amit meg kellene forgatni vagy vágni? Szívesen segítek összerakni.",
 
         // =========================================================
         // TUTORING
